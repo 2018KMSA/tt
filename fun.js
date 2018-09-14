@@ -1416,8 +1416,10 @@ hw.addEventListener('click', function(){
   var name = document.getElementById("name").value;
   var val = univ+grade+name;
   var hash = CryptoJS.SHA256(val);
-  if (datas.includes(String(hash)))
-    alert("정회원입니다");
+  if (name == '')
+    alert("이름을 입력하세요.");
+  else if (datas.includes(String(hash)))
+    alert("정회원입니다.");
   else
-    alert("정회원이 아닙니다");
+    alert("정회원이 아닙니다.");
 })

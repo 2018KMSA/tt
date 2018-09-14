@@ -1417,7 +1417,7 @@ hw.addEventListener('click', function(){
   var name = document.getElementById("name").value;
   var val = univ+grade+name;
   var hash = CryptoJS.SHA256(val);
-  if (datas.includes(String(hash)))
+    if (datas.includes(String(hash)))
     alert("회원입니다");
   else
     alert("회원이 아닙니다");

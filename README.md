@@ -1,1 +1,1 @@
-# tt
+python preprocess.py > fun.js

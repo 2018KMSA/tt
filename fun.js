@@ -1409,7 +1409,6 @@ var datas = [
 "950224ec5c7676a70c134db6dbb20ce0ae5bf811aaeee6477f1800321a9ee13e",
 "966fe6001fd29547939dc1c61105620ee4ce5ce656bb25a46921ca68b658dbac",
 ]
-
 var hw = document.getElementById('hw');
 hw.addEventListener('click', function(){
   var univ = document.getElementById("univ").value;
@@ -1417,8 +1416,8 @@ hw.addEventListener('click', function(){
   var name = document.getElementById("name").value;
   var val = univ+grade+name;
   var hash = CryptoJS.SHA256(val);
-    if (datas.includes(String(hash)))
-    alert("회원입니다");
+  if (datas.includes(String(hash)))
+    alert("정회원입니다");
   else
-    alert("회원이 아닙니다");
+    alert("정회원이 아닙니다");
 })

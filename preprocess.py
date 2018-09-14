@@ -12,7 +12,7 @@ grades = []
 
 next(rdr)
 
-f_js.write("var datas = [")
+f_js.write("var datas = [\n")
 
 for line in rdr:
     univ = str(line[0])
@@ -26,7 +26,7 @@ for line in rdr:
     hash.update(val.encode('utf-8'))
     hash_val = hash.hexdigest()
 
-    f_js.write("\""+hash_val+"\",")
+    f_js.write("\""+hash_val+"\",\n")
 
 f.close()
 
@@ -34,39 +34,39 @@ f_js.write("]\n")
 
 grades.sort()
 
-f_js.write("var hw = document.getElementById('hw');");
-f_js.write("hw.addEventListener('click', function(){");
-f_js.write("  var univ = document.getElementById(\"univ\").value;")
-f_js.write("  var grade = document.getElementById(\"grade\").value;")
-f_js.write("  var name = document.getElementById(\"name\").value;")
-f_js.write("  var val = univ+grade+name;")
-f_js.write("  var hash = CryptoJS.SHA256(val);")
-f_js.write("  if (datas.includes(String(hash)))")
-f_js.write("    alert(\"정회원입니다\");")
-f_js.write("  else")
-f_js.write("    alert(\"정회원이 아닙니다\");")
-f_js.write("})")
+f_js.write("var hw = document.getElementById('hw');\n");
+f_js.write("hw.addEventListener('click', function(){\n");
+f_js.write("  var univ = document.getElementById(\"univ\").value;\n")
+f_js.write("  var grade = document.getElementById(\"grade\").value;\n")
+f_js.write("  var name = document.getElementById(\"name\").value;\n")
+f_js.write("  var val = univ+grade+name;\n")
+f_js.write("  var hash = CryptoJS.SHA256(val);\n")
+f_js.write("  if (datas.includes(String(hash)))\n")
+f_js.write("    alert(\"정회원입니다\");\n")
+f_js.write("  else\n")
+f_js.write("    alert(\"정회원이 아닙니다\");\n")
+f_js.write("})\n")
 
 f_js.close()
 
 f_html = open("./index.html", 'w')
 
-f_html.write("<html>")
-f_html.write("  <body>")
-f_html.write("    <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js'></script>")
-f_html.write("    학교 <select id=\"univ\">")
+f_html.write("<html>\n")
+f_html.write("  <body>\n")
+f_html.write("    <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js'></script>\n")
+f_html.write("    학교 <select id=\"univ\">\n")
 for u in univs:
-    f_html.write("      <option value=\""+u+"\">"+u+"</option>")
-f_html.write("    </select><p>")
-f_html.write("    학년 <select id=\"grade\">")
+    f_html.write("      <option value=\""+u+"\">"+u+"</option>\n")
+f_html.write("    </select><p>\n")
+f_html.write("    학년 <select id=\"grade\">\n")
 for g in grades:
-    f_html.write("      <option value=\""+g+"\">"+g+"</option>")
-f_html.write("    </select><p>")
-f_html.write("    이름 <input type=\"text\" name=\"firstname\" value=\"\" id=\"name\"><p>")
-f_html.write("    <input type=\"button\" id=\"hw\" value=\"확인\" />")
-f_html.write("    <script src=\"./fun.js\">")
-f_html.write("    </script>")
-f_html.write("  </body>")
-f_html.write("</html>")
+    f_html.write("      <option value=\""+g+"\">"+g+"</option>\n")
+f_html.write("    </select><p>\n")
+f_html.write("    이름 <input type=\"text\" name=\"firstname\" value=\"\" id=\"name\"><p>\n")
+f_html.write("    <input type=\"button\" id=\"hw\" value=\"확인\" />\n")
+f_html.write("    <script src=\"./fun.js\">\n")
+f_html.write("    </script>\n")
+f_html.write("  </body>\n")
+f_html.write("</html>\n")
 
 f_html.close()
